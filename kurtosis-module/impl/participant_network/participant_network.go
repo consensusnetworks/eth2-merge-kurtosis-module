@@ -106,6 +106,7 @@ func LaunchParticipantNetwork(
 		elGenesisGenerationConfigTemplateString,
 		elGenesisTimestamp,
 		networkParams.NetworkID,
+		networkParams.PremineAccountMnemonic,
 		networkParams.DepositContractAddress,
 	)
 	if err != nil {

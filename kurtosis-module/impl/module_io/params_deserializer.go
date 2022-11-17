@@ -1,10 +1,11 @@
 package module_io
 
 import (
+	"strings"
+
 	"github.com/kurtosis-tech/stacktrace"
 	"github.com/sirupsen/logrus"
 	"gopkg.in/yaml.v3"
-	"strings"
 )
 
 const (
@@ -90,6 +91,9 @@ func DeserializeAndValidateParams(paramsStr string) (*ExecuteParams, error) {
 	networkParams := paramsObj.Network
 	if len(strings.TrimSpace(networkParams.NetworkID)) == 0 {
 		return nil, stacktrace.NewError("Network ID must not be empty")
+	}
+	if len(strings.TrimSpace(networkParams.PremineAccountMnemonic)) == 0 {
+		return nil, stacktrace.NewError("Account mnemonic must not be empty")
 	}
 	if len(strings.TrimSpace(networkParams.DepositContractAddress)) == 0 {
 		return nil, stacktrace.NewError("Deposit contract address must not be empty")

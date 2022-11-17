@@ -3,13 +3,14 @@ package el_genesis
 import (
 	"context"
 	"fmt"
+	"path"
+	"strings"
+
 	"github.com/kurtosis-tech/eth2-merge-kurtosis-module/kurtosis-module/impl/participant_network/prelaunch_data_generator/prelaunch_data_generator_launcher"
 	"github.com/kurtosis-tech/kurtosis-sdk/api/golang/core/lib/enclaves"
 	"github.com/kurtosis-tech/kurtosis-sdk/api/golang/core/lib/services"
 	"github.com/kurtosis-tech/stacktrace"
 	"github.com/sirupsen/logrus"
-	"path"
-	"strings"
 )
 
 const (
@@ -30,6 +31,7 @@ const (
 
 type genesisGenerationConfigTemplateData struct {
 	NetworkId              string
+	PremineAccountMnemonic string
 	DepositContractAddress string
 	UnixTimestamp          uint64
 }
@@ -77,6 +79,7 @@ func GenerateELGenesisData(
 	genesisGenerationConfigTemplate string,
 	genesisUnixTimestamp uint64,
 	networkId string,
+	premineAccountMnemonic string,
 	depositContractAddress string,
 ) (
 	*ELGenesisData,
@@ -84,6 +87,7 @@ func GenerateELGenesisData(
 ) {
 	templateData := &genesisGenerationConfigTemplateData{
 		NetworkId:              networkId,
+		PremineAccountMnemonic: premineAccountMnemonic,
 		DepositContractAddress: depositContractAddress,
 		UnixTimestamp:          genesisUnixTimestamp,
 	}

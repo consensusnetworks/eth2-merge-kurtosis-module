@@ -121,6 +121,9 @@ network:
   #  The network ID of the Eth1 network
   networkId: "3151908"
 
+  #  The premine account on the Eth1 chain
+  premineAccountMnemonic: "predict network earn steak prefer woman because grid peasant panel garage knee asset card umbrella major chimney van gather catch shiver width toss exchange"
+
   #  The address of the staking contract address on the Eth1 chain
   depositContractAddress: "0x4242424242424242424242424242424242424242"
 

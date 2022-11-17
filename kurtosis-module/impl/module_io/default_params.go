@@ -59,6 +59,7 @@ func GetDefaultExecuteParams() *ExecuteParams {
 		},
 		Network: &NetworkParams{
 			NetworkID:                          "3151908",
+			PremineAccountMnemonic:             "predict network earn steak prefer woman because grid peasant panel garage knee asset card umbrella major chimney van gather catch shiver width toss exchange",
 			DepositContractAddress:             "0x4242424242424242424242424242424242424242",
 			SecondsPerSlot:                     12,
 			SlotsPerEpoch:                      32,

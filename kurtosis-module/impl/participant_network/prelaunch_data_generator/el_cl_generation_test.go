@@ -3,6 +3,12 @@ package prelaunch_data_generator
 import (
 	"context"
 	"fmt"
+	"io/ioutil"
+	"os"
+	"path"
+	"testing"
+	"time"
+
 	"github.com/kurtosis-tech/eth2-merge-kurtosis-module/kurtosis-module/impl/module_io"
 	"github.com/kurtosis-tech/eth2-merge-kurtosis-module/kurtosis-module/impl/participant_network/prelaunch_data_generator/cl_genesis"
 	"github.com/kurtosis-tech/eth2-merge-kurtosis-module/kurtosis-module/impl/participant_network/prelaunch_data_generator/el_genesis"
@@ -10,11 +16,6 @@ import (
 	"github.com/kurtosis-tech/kurtosis-sdk/api/golang/engine/lib/kurtosis_context"
 	"github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/require"
-	"io/ioutil"
-	"os"
-	"path"
-	"testing"
-	"time"
 )
 
 const (
@@ -88,6 +89,7 @@ func TestPrelaunchGenesisGeneration(t *testing.T) {
 		string(gethGenesisConfigTemplate),
 		uint64(time.Now().Unix()),
 		networkParams.NetworkID,
+		networkParams.PremineAccountMnemonic,
 		networkParams.DepositContractAddress,
 	)
 	require.NoError(t, err)

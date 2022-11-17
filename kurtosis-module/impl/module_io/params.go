@@ -168,6 +168,9 @@ type NetworkParams struct {
 	// The network ID of the Eth1 network
 	NetworkID string `yaml:"networkId"`
 
+	// The premine account on the Eth1 chain
+	PremineAccountMnemonic string `yaml:"premineAccountMnemonic"`
+
 	// The address of the staking contract address on the Eth1 chain
 	DepositContractAddress string `yaml:"depositContractAddress"`
 
